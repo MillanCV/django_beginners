@@ -17,3 +17,4 @@ approach. Out-of-the-box it brings support for:
 ## Recommended formatter
 
 Black on save (quick check: single quotes are substituted by double quotes)
+

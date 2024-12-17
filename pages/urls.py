@@ -9,6 +9,6 @@ from pages.views import (
 
 urlpatterns = [
     path("", home_page_view, name="home"),
-    path("hello_view/", HomePageView.as_view(), name="hello_view"),
-    path("about/", AboutPageView.as_view(), name="about_view"),
+    path("home/", HomePageView.as_view(), name="home"),
+    path("about/", AboutPageView.as_view(), name="about"),
 ]

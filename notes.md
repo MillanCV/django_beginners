@@ -41,16 +41,19 @@ Black on save (quick check: single quotes are substituted by double quotes)
    * add url
    * add templates
 9. Apply migrations
-   1.  python manage.py migrate
-   2.  python manage.py makemigrations
- 
+   1.  python manage.py makemigrations
+   2.  python manage.py migrate
+10. Create Database Model
+11. In case of defined static folder 'python manage.py collectstatic'
+12. For tests: python manage.py test 
 
 ## Common general settings
 
  * INSTALLED_APPS += "pages.apps.PagesConfig"
  * "DIRS": [BASE_DIR / "templates"]
  * ALLOWED_HOSTS = ["*"] 
-
+ * STATIC_URL = "static/"
+ * STATIC_ROOT = BASE_DIR / "staticfiles", must be followed by 'python manage.py collectstatic"
 
 ## Views
 
@@ -59,6 +62,8 @@ Black on save (quick check: single quotes are substituted by double quotes)
 * Function-based views
 * Class-based views
 * Generic class-based views
+  * TemplateView: display a template
+  * ListView: display a list
 
 ## Urls
 
@@ -76,6 +81,7 @@ Black on save (quick check: single quotes are substituted by double quotes)
 * url
 * block - endblock
 * extends
+* for - endfor
 
 ## Testing
 
@@ -89,6 +95,11 @@ Black on save (quick check: single quotes are substituted by double quotes)
     * TestCase: when testing SB
     * TransactionTestCase: when testing DB transactions
     * LiveServerTestCase
+  
+### Database testing
+
+* TestCase allows to tests with a test db
+* Classmethod setUpTestData allows to initialize DB
 
 ## Hosting
 
@@ -107,3 +118,40 @@ Black on save (quick check: single quotes are substituted by double quotes)
 6. fly launch 
 7. flyctl deploy
 8. fly open 
+
+
+## Django ORM
+
+Translate automatically models to differents DB's
+
+### ORM operations:
+
+* Create record: Model.objects.create(fields)
+
+## Database
+
+* Sqlite3 is default DB in Django
+  * Created when manage.py migrate or runserver are executed
+
+
+## Models
+
+* For each db model we want to create we subclass django.db.models.Model
+* Once we have a model we run makemigrations and migrate.
+
+### Add models to admin
+
+* in app/admin.py
+  ```python 
+  from django.contrib import admin
+
+  from .models import Post
+
+  admin.site.register(Post)
+  ``` 
+
+
+## Static files
+
+* Additional files commonly served: CSS, fonts, images, js
+* In production, it is more efficient to combine all static files under a single location 

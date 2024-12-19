@@ -158,6 +158,7 @@ Black on save (quick check: single quotes are substituted by double quotes)
 7. fly launch 
 8. flyctl deploy
 9. fly open 
+10.  fly ssh console --pty -C "python /code/manage.py createsuperuser" 
 
 ### Environment variables
 
@@ -166,13 +167,7 @@ Black on save (quick check: single quotes are substituted by double quotes)
   * To keep information secure, such as passwords, api keys...
   * Allow to rely on a single settings.py file to load local or production environment variables.
 
-## Django ORM
 
-Translate automatically models to differents DB's
-
-### ORM operations:
-
-* Create record: Model.objects.create(fields)
 
 ## Database
 
@@ -180,6 +175,26 @@ Translate automatically models to differents DB's
   * Created when manage.py migrate or runserver are executed
 * Postgresql requires psycopg:
   * python -m pip install "psycopg[binary]"
+* Relational database:
+  * A place to store and access different types of data, in tables, with columns and rows
+    * Columns define what information can be stored
+    * Rows contains actual data
+    * Frequently data in separate tables have some relation
+  * SQL is used to interact with relational databases to perform CRUD operations and define the type of relationships
+  * Recommended when data is consisten, structured and relationships are essential.
+* Non-relational database:
+  * Don't uses the previous structure
+  * Types: document-oriented, key-value, graph, wide-column...
+    * Recommended when data is not structured, needs to be flexible in size or shape or open to change.
+
+### Django ORM
+
+* Translate automatically models to differents relational DB's
+* Allows to define database models whitout writing SQL
+
+#### ORM operations:
+
+* Create record: Model.objects.create(fields)
 
 ## Models
 

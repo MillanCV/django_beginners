@@ -3,7 +3,9 @@ from django.db import models
 
 # Create your models here.
 class Post(models.Model):
-    text = models.TextField()
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
+    body = models.TextField()
 
     def __str__(self):
-        return self.text[:50]
+        return self.title[:50]

@@ -57,6 +57,7 @@ Black on save (quick check: single quotes are substituted by double quotes)
  * ALLOWED_HOSTS = ["*"] 
  * STATIC_URL = "static/"
  * STATIC_ROOT = BASE_DIR / "staticfiles", must be followed by 'python manage.py collectstatic"
+ * STATICFILES_DIRS = [BASE_DIR / "static"] 
  * Add environment variables
   ```
     from pathlib import Path
@@ -112,7 +113,8 @@ Black on save (quick check: single quotes are substituted by double quotes)
 * block - endblock
 * extends
 * for - endfor
-
+* static
+* 
 ## Testing
 
 * Unittest: used by default by Django
@@ -191,6 +193,7 @@ Black on save (quick check: single quotes are substituted by double quotes)
 
 * Translate automatically models to differents relational DB's
 * Allows to define database models whitout writing SQL
+* Django automati
 
 #### ORM operations:
 
